@@ -71,15 +71,15 @@ void reconnect() {
 // Ulangi sampai mendapatkan koneksi
 while (!client.connected()) {
 Serial.print(“proses menerima koneksi“);
-// Attempt to connect
+// Mencoba untuk terhubung broker
 if (client.connect(“ESP32Client“, pengguna, ““)) {
-Serial.println(“-> MQTT client connected“);
+  Serial.println(“Klien terkoneksi“);
 } else {
-Serial.print(“failed, rc=“);
-Serial.print(client.state());
-Serial.println(“-> try again in 5 seconds“);
-// Wait 5 seconds before retrying
-delay(5000);
+  Serial.print(“gagal, rc=“);
+  Serial.print(client.state());
+  Serial.println(“coba ulang 5 detik“);
+  // Tunggu jeda 5 detik
+  delay(5000);
 }
 }
 
